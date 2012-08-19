@@ -1,0 +1,29 @@
+<h1>Listing admin_competitions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Max age</th>
+    <th>Min age</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_competitions.each do |admin_competition| %>
+  <tr>
+    <td><%= admin_competition.name %></td>
+    <td><%= admin_competition.sex %></td>
+    <td><%= admin_competition.max_age %></td>
+    <td><%= admin_competition.min_age %></td>
+    <td><%= link_to 'Show', admin_competition %></td>
+    <td><%= link_to 'Edit', edit_admin_competition_path(admin_competition) %></td>
+    <td><%= link_to 'Destroy', admin_competition, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Competition', new_admin_competition_path %>

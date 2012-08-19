@@ -1,4 +1,6 @@
 SiteOlimp::Application.routes.draw do
+  namespace :admin do resources :competitions end
+
   namespace :admin do resources :organizations end
 
   root :to => "home#index"

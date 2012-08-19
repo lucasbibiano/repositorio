@@ -1,0 +1,33 @@
+<%= form_for(@admin_competition) do |f| %>
+  <% if @admin_competition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_competition.errors.count, "error") %> prohibited this admin_competition from being saved:</h2>
+
+      <ul>
+      <% @admin_competition.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :max_age %><br />
+    <%= f.number_field :max_age %>
+  </div>
+  <div class="field">
+    <%= f.label :min_age %><br />
+    <%= f.number_field :min_age %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
