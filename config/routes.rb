@@ -1,4 +1,6 @@
 SiteOlimp::Application.routes.draw do
+  devise_for :users
+
   namespace :representante do resources :athletes end
 
   namespace :admin do resources :competitions end
