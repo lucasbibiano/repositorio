@@ -1,13 +1,12 @@
 SiteOlimp::Application.routes.draw do
+  root :to => "home#index"
+  
   devise_for :users
 
   namespace :representante do resources :athletes end
 
-  namespace :admin do resources :competitions end
-
-  namespace :admin do resources :organizations end
-
-  root :to => "home#index"
+  namespace :admin do resources :competitions, :organizations end
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

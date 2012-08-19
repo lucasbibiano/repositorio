@@ -7,8 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="tudo">
+		<header>
+			<div class="container">
+				<div class="row">
 
-<%= yield %>
+					<div class="span5">
+						<nav>
+							<ul>
+								<li><a href="#">Menu 1</a></li>
+								<li><a href="#">Menu 2</a></li>
+								<li><a href="#">Menu 3</a></li>
+								<li><a href="#">Menu 4</a></li>
+								<li><a href="#">Menu 5</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="span7">
+						<h1>Olimpíadas infantis</h1>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<div class="fundo_corpo">
+			<div class="container corpo box-shadow">
+				<%= yield %>
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<p>Lorem ipsum sit dolor amet - 2012</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
 
 </body>
 </html>

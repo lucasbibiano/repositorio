@@ -8,6 +8,70 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
+
+ html, body{
+ 	background: #3299CC;
+ 	font-size: 12pt;
+ 	font-family: Tahoma;
+}
+
+#tudo{
+	background-image: linear-gradient(bottom, rgb(51,161,201) 100%, rgb(50,153,204) 0%);
+	background-image: -o-linear-gradient(bottom, rgb(51,161,201) 100%, rgb(50,153,204) 0%);
+	background-image: -moz-linear-gradient(bottom, rgb(51,161,201) 100%, rgb(50,153,204) 0%);
+	background-image: -webkit-linear-gradient(bottom, rgb(51,161,201) 100%, rgb(50,153,204) 0%);
+	background-image: -ms-linear-gradient(bottom, rgb(51,161,201) 100%, rgb(50,153,204) 0%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, rgb(51,161,201)),
+		color-stop(0, rgb(50,153,204))
+	);
+}
+
+header{
+	padding-top: 15px;
+}
+
+header h1{
+	text-align: right;
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+nav li{
+	display: inline;
+}
+
+nav li a{
+	padding: 10px;
+	color: white !important;
+	font-weight: bold;
+}
+
+nav li a:hover{
+	padding: 10px;
+	text-decoration: none;
+	background: #191970;
+}
+
+.box-shadow{
+	box-shadow: 0 0 3px 3px;
+}
+
+.corpo{
+	background: #E0EEEE;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+footer{
+	color: white;
+	text-align: center;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
