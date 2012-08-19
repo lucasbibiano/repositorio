@@ -1,3 +1,4 @@
 class Admin::Organization < ActiveRecord::Base
-  attr_accessible :name
+	has_many :athletes
+	attr_accessible :name
 end

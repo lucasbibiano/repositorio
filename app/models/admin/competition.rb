@@ -1,3 +1,4 @@
 class Admin::Competition < ActiveRecord::Base
-  attr_accessible :max_age, :min_age, :name, :sex
+	has_and_belongs_to_many :athletes
+	attr_accessible :max_age, :min_age, :name, :sex
 end

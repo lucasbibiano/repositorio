@@ -1,0 +1,2 @@
+module Representante::AthletesHelper
+end
