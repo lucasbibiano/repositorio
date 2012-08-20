@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20120819191458) do
     t.string   "sex"
     t.integer  "max_age"
     t.integer  "min_age"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "max_per_org"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "admin_organizations", :force => true do |t|

@@ -5,6 +5,7 @@ class CreateAdminCompetitions < ActiveRecord::Migration
       t.string :sex
       t.integer :max_age
       t.integer :min_age
+      t.integer :max_per_org
 
       t.timestamps
     end

@@ -32,32 +32,36 @@
 		color-stop(1, rgb(51,161,201)),
 		color-stop(0, rgb(50,153,204))
 	);
-}
 
-header{
-	padding-top: 15px;
+	margin: 0;
 }
 
 header h1{
 	text-align: right;
 	color: white;
 	text-shadow: black 0.1em 0.1em 0.2em;
+	line-height: 3em;
 }
 
-nav li{
-	display: inline;
+nav ul{
+	margin: 0;
 }
 
-nav li a{
-	padding: 10px;
+nav ul li{
+	display: inline-block;
+	line-height: 3em;
+}
+
+nav ul li a{
+	padding: 0 10px 0 10px;
 	color: white !important;
 	font-weight: bold;
+	display: block;
 }
 
 nav li a:hover{
-	padding: 10px;
 	text-decoration: none;
-	background: #191970;
+	background: deepskyblue;
 }
 
 .box-shadow{
