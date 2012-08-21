@@ -1,29 +1,36 @@
-<h1>Listing admin_competitions</h1>
+<h2>Competições</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Sex</th>
-    <th>Max age</th>
-    <th>Min age</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @admin_competitions.empty? %>
+  <p>Nenhuma competição cadastrada</p>
+<% else %>
+  <% @admin_competitions.each do |admin_competition| %>
+    <div class="competicao">
+      <h3><%= admin_competition.full_name %></h3>
 
-<% @admin_competitions.each do |admin_competition| %>
-  <tr>
-    <td><%= admin_competition.name %></td>
-    <td><%= admin_competition.sex %></td>
-    <td><%= admin_competition.max_age %></td>
-    <td><%= admin_competition.min_age %></td>
-    <td><%= link_to 'Show', admin_competition %></td>
-    <td><%= link_to 'Edit', edit_admin_competition_path(admin_competition) %></td>
-    <td><%= link_to 'Destroy', admin_competition, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+      <% if admin_competition.athletes.empty? %>
+        <p>Nenhum atleta cadastrado nesta competição</p>
+      <% else %>
+        <ul>
+
+          <% admin_competition.athletes.each do |athlete| %>
+            <li>athlete.name | edit_admin_organization_path(admin_organization)</li>
+          <% end %>
+
+        </ul>
+      <% end %>
+
+      <p class="links">
+        <%= link_to 'Exibir detalhes', admin_competition %> |
+        <%= link_to 'Editar', edit_admin_competition_path(admin_competition) %> |
+        <%= link_to 'Apagar', admin_competition, confirm: 'Tem certeza disso?', method: :delete %>
+      </p>
+    </div>
+
+  <% end %>
+
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Competition', new_admin_competition_path %>
+
+<%= link_to 'Nova competição', new_admin_competition_path %>

@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nome" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :sex %><br />
+    <%= f.label :sex, "Sexo" %><br />
     <%= f.text_field :sex %>
   </div>
   <div class="field">
-    <%= f.label :max_age %><br />
-    <%= f.number_field :max_age %>
-  </div>
-  <div class="field">
-    <%= f.label :min_age %><br />
+    <%= f.label :min_age, "Idade mínima" %><br />
     <%= f.number_field :min_age %>
   </div>
   <div class="field">
-    <%= f.label :max_per_org %><br />
+    <%= f.label :max_age, "Idade máxima" %><br />
+    <%= f.number_field :max_age %>
+  </div>
+  <div class="field">
+    <%= f.label :max_per_org, "Inscrições máximas por organização" %><br />
     <%= f.number_field :max_per_org %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Criar/Atualizar dados" %>
   </div>
 <% end %>

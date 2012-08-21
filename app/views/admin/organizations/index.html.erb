@@ -1,23 +1,40 @@
-<h1>Listing admin_organizations</h1>
+<h2>Organizações</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @admin_organizations.empty? %>
+  <p>Nenhuma organização cadastrada</p>
+<% else %>
+  
+  <% @admin_organizations.each do |org| %>
+    <h3><%= org.name %></h3>
 
-<% @admin_organizations.each do |admin_organization| %>
-  <tr>
-    <td><%= admin_organization.name %></td>
-    <td><%= link_to 'Show', admin_organization %></td>
-    <td><%= link_to 'Edit', edit_admin_organization_path(admin_organization) %></td>
-    <td><%= link_to 'Destroy', admin_organization, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <% if org.athletes.empty? %>
+      <p>Não existem atletas cadastrados nesta organização</p>
+    <% else %>
+
+      <h4>Atletas</h4>
+
+      <ul>
+        <% org.athletes.each do |atl| %>
+          <li><%= atl.name %></li>
+        <% end %>
+      </ul>
+
+    <% end %>
+
+    <h4>Representantes</h4>
+
+    <p>To be implemented...</p>          
+
+    <p class="links">
+      <%= link_to 'Exibir detalhes', org %> |
+      <%= link_to 'Editar', edit_admin_organization_path(org) %> |
+      <%= link_to 'Apagar', org, confirm: 'Tem certeza disso?', method: :delete %>
+    </p>
+
+  <% end %>
+
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Organization', new_admin_organization_path %>
+<%= link_to 'Nova organização', new_admin_organization_path %>

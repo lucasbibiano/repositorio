@@ -1,25 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @admin_competition.name %>
-</p>
+  <div class="competicao">
+    <h3><%= @admin_competition.full_name %></h3>
 
-<p>
-  <b>Sex:</b>
-  <%= @admin_competition.sex %>
-</p>
+    <% if @admin_competition.athletes.empty? %>
+      <p>Nenhum atleta cadastrado nesta competição</p>
+    <% else %>
+      <ul>
 
-<p>
-  <b>Max age:</b>
-  <%= @admin_competition.max_age %>
-</p>
+        <% @admin_competition.athletes.each do |athlete| %>
+          <li>athlete.name</li>
+        <% end %>
 
-<p>
-  <b>Min age:</b>
-  <%= @admin_competition.min_age %>
-</p>
+      </ul>
+    <% end %>
+
+  </div>
 
 
-<%= link_to 'Edit', edit_admin_competition_path(@admin_competition) %> |
-<%= link_to 'Back', admin_competitions_path %>
+<%= link_to 'Editar competição', edit_admin_competition_path(@admin_competition) %> |
+<%= link_to 'Voltar', admin_competitions_path %>
