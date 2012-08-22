@@ -35,7 +35,15 @@
 
 		<div class="fundo_corpo">
 			<div class="container corpo box-shadow">
+
+				<p class="notice"><%= notice %></p> 
+
 				<%= yield %>
+
+				<% if user_signed_in? %>
+					<%= current_user.inspect %>
+				<% end %>
+
 			</div>
 		</div>
 

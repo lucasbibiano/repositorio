@@ -1,8 +1,10 @@
 SiteOlimp::Application.routes.draw do
+  devise_for :users, :controllers  => {
+             :registrations => 'users/registrations'
+           }
+
   root :to => "home#index"
   
-  devise_for :users
-
   namespace :representante do resources :athletes end
 
   namespace :admin do resources :competitions, :organizations end

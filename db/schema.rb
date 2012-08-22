@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819191458) do
+ActiveRecord::Schema.define(:version => 20120821221601) do
 
   create_table "admin_competitions", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120819191458) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "is_admin"
+    t.integer  "organization_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

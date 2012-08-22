@@ -15,7 +15,7 @@
 html, body{
 	background: #3299CC;
 	font-size: 12pt;
-	font-family: Tahoma;
+	font-family: Helvetica;
 }
 
 #tudo{
@@ -54,7 +54,7 @@ nav ul li{
 }
 
 nav ul li a{
-	padding: 0 10px 0 10px;
+	padding: 0 15px 20px 15px;
 	color: white !important;
 	font-weight: bold;
 	display: block;
