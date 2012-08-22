@@ -1,10 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+	skip_before_filter :require_no_authentication
+
+	before_filter :authenticate_user!, :only => [:new, :create]
+	before_filter :only_admin, :only => [:new, :create]
+
 
 	def new
 		@organizations = Admin::Organization.all
   		super
 	end
-
 
 	def create
 		@org = Admin::Organization.find(params[:user][:organization_id])
@@ -18,6 +22,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		else
 	  		render :action => "new", :notice => 'erro'
 		end
+	end
+
+	private
+	def only_admin
+
+		puts "tessdfsadfdsafdsfsdfste"
+
+		if current_user == nil
+			redirect_to root_path, :notice => "bAcesso negado" 
+		elsif !current_user.is_admin
+			redirect_to admin_competition_path, :notice => "aAcesso negado" 
+		end
+
 	end
 
 end
