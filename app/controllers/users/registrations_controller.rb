@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		@org = Admin::Organization.find(params[:user][:organization_id])
 		
 		@user = @org.users.create(params[:user])
+		@user.is_admin = false
 
 		if @user.save
 			redirect_to root_path, 
