@@ -10,26 +10,41 @@
 <body>
 	<div id="tudo">
 		<header>
-			<div class="container">
+			<div class="logado">
+				<div class="container">
+
+					<div class="row">
+						<div class="span3">
+							<% if user_signed_in? %>
+								<p class="nav_link">
+									<%= link_to('Sair', destroy_user_session_path, :method => :delete) %></p>
+							<% else %>
+								<p class="nav_link">
+									<%= link_to('Entrar', new_user_session_path)  %></p>
+							<% end %>
+						</div>
+						<div class="span9">
+							<% if user_signed_in? %>
+								<p class="detalhes">
+									<%= current_user.details %>
+								</p>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>			
+
+			<div class="container">			
 				<div class="row">
 
 					<div class="span5">
 						<nav>
 							<ul>
-								<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
-								<li><a href="#">Menu 1</a></li>
+								<li><a href="#">Menu </a></li>
+								<li><a href="#">Menu grande</a></li>
+								<li><a href="#">Mn</a></li>
 								<li><a href="#">Menu 2</a></li>
 								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
-								<li><a href="#">Menu 5</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -39,7 +54,9 @@
 					</div>
 
 				</div>
+
 			</div>
+
 		</header>
 
 		<div class="fundo_corpo">

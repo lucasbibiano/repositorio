@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
 	# Setup accessible (or protected) attributes for your model
 	attr_accessible :organization_id, :email, :password, :password_confirmation, :remember_me, :is_admin
 	# attr_accessible :title, :body
+
+	def details
+		return "Logado como " << email << " | " <<
+		 (is_admin ? "Administrador" : "Representante") << " | " <<
+		 (organization ? organization.name : "")
+	end
 end

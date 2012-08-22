@@ -30,9 +30,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		puts "tessdfsadfdsafdsfsdfste"
 
 		if current_user == nil
-			redirect_to root_path, :notice => "bAcesso negado" 
+			redirect_to root_path, :notice => "Acesso negado" 
 		elsif !current_user.is_admin
-			redirect_to admin_competition_path, :notice => "aAcesso negado" 
+			redirect_to root_path, :notice => "Acesso negado"  
 		end
 
 	end
