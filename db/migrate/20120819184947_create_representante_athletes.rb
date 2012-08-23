@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRepresentanteAthletes < ActiveRecord::Migration
   def change
     create_table :representante_athletes do |t|

@@ -11,6 +11,7 @@
  *= require_tree .
  *= require_self
  */
+
 html, body{
 	background: #3299CC;
 	font-size: 12pt;
@@ -38,6 +39,10 @@ html, body{
 	background: #006699;
 	text-align: left;
 	height: 30px;
+}
+
+.logado p{
+	font-size: 0.7em;
 }
 
 p.nav_link{

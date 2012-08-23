@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::OrganizationsController < ApplicationController
 
   before_filter :only_admin

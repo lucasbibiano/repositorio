@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function detalhes_span7(){
+	$('.set_span').add_class('span7');
+	$('.set_span2').add_class('span5');
+}
+
+function detalhes_span6(){
+	$('.set_span').add_class('span6');
+	$('.set_span2').add_class('span6');
+}

@@ -8,6 +8,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<% #nao sei onde colocar isso, vai aqui mesmo %>
+	<% if user_signed_in? %>
+	<% 	if current_user.is_admin %>
+	<%   @set_span = "span6" %>
+	<%	 @set_span2 = "span6" %>
+	<%	else %>
+	<%   @set_span = "span7" %>
+	<%	 @set_span2 = "span5" %>
+	<%	end %>
+	<% end %>
+
 	<div id="tudo">
 		<header>
 			<% if user_signed_in? %>
@@ -16,13 +27,13 @@
 
 						<div class="row">
 						
-							<div class="span5">
+							<div class="<%= @set_span %>">
 								<p class="detalhes">
 									<%= current_user.details %>
 								</p>
 							</div>
 
-							<div class="span7">
+							<div class="<%= @set_span2 %>">
 								<p class="nav_link">
 
 									<% if current_user.is_admin %>

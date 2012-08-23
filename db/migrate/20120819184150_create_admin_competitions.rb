@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAdminCompetitions < ActiveRecord::Migration
   def change
     create_table :admin_competitions do |t|

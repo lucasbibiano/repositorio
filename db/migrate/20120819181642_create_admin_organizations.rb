@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAdminOrganizations < ActiveRecord::Migration
   def change
     create_table :admin_organizations do |t|

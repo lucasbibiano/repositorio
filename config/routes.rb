@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 SiteOlimp::Application.routes.draw do
   devise_for :users, :controllers  => {
              :registrations => 'users/registrations'

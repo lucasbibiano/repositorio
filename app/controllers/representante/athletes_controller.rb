@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Representante::AthletesController < ApplicationController
 
   before_filter :only_rep
