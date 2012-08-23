@@ -16,14 +16,25 @@
 
 						<div class="row">
 						
-							<div class="span9">
+							<div class="span5">
 								<p class="detalhes">
 									<%= current_user.details %>
 								</p>
 							</div>
 
-							<div class="span3">
+							<div class="span7">
 								<p class="nav_link">
+
+									<% if current_user.is_admin %>
+										<%= link_to 'Gerenciar Competições', admin_competitions_path %> |
+										<%= link_to 'Gerenciar Representantes', 
+											'/users/sign_up' %> |
+										<%= link_to 'Gerenciar Organizações', admin_organizations_path %> |
+									<% else %>
+										<%= link_to 'Gerenciar Atletas', representante_athletes_path %> |
+										<%= link_to 'Inscrever atletas', representante_athletes_path %> |
+									<% end %>
+
 									<%= link_to('Sair', destroy_user_session_path, :method => :delete) %>
 								</p>
 							</div>
@@ -39,7 +50,7 @@
 					<div class="span7 nav">
 						<nav>
 							<ul>
-								<li><a href="#">Menu </a></li>
+								<li><a href="/">Home</a></li>
 								<li><a href="#">Menu grande</a></li>
 								<li><a href="#">Mn</a></li>
 								<li><a href="#">Menu 2</a></li>
