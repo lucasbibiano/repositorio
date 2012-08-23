@@ -1,11 +1,11 @@
-<h2>Atletas</h2>
+<h2>Atletas - <%= current_user.organization.name %></h2>
 
 <% if @representante_athletes.empty? %>
   <p>Nenhum atleta cadastrado</p>
 <% else %>
   <ul>
     <% @representante_athletes.each do |atl| %>
-      <li><%= atl.organization.name > atl.name %></li>
+      <li><%= atl.details %></li>
     <% end %>
   </ul>
 <% end %>

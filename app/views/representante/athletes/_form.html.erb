@@ -16,16 +16,13 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :sex, "Sexo" %><br />
-    <%= f.text_field :sex %>
-  </div>
-  <div class="field">
     <%= f.label :age, "Idade" %><br />
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :organization, "Organização" %><br />
-    <%= f.text_field :organization %>
+    <%= f.label :sex, "Sexo" %><br />
+    <%= f.select :sex, options_for_select([["Masculino", "Masculino"],
+     ["Feminino", "Feminino"]]) %>
   </div>
   <div class="actions">
     <%= f.submit "Criar/atualizar dados"%>

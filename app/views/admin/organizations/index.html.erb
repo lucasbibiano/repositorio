@@ -4,35 +4,47 @@
   <p>Nenhuma organização cadastrada</p>
 <% else %>
   
+  
   <% @admin_organizations.each do |org| %>
-    <h3><%= org.name %></h3>
+    <div class="organization">
 
-    <% if org.athletes.empty? %>
-      <p>Não existem atletas cadastrados nesta organização</p>
-    <% else %>
+      <h3><%= org.name %></h3>
 
-      <h4>Atletas</h4>
+      <% if org.athletes.empty? %>
+        <p>Não existem atletas cadastrados nesta organização</p>
+      <% else %>
 
-      <ul>
-        <% org.athletes.each do |atl| %>
-          <li><%= atl.name %></li>
-        <% end %>
-      </ul>
+        <h4>Atletas</h4>
 
-    <% end %>
+        <ul>
+          <% org.athletes.each do |atl| %>
+            <li><%= atl.details %></li>
+          <% end %>
+        </ul>
 
-    <h4>Representantes</h4>
+      <% end %>
 
-    <p>To be implemented...</p>          
+      <% if org.athletes.empty? %>
+        <p>Não existem representantes cadastrados para esta organização</p>
+      <% else %>
+        <h4>Representantes</h4>
 
-    <p class="links">
-      <%= link_to 'Exibir detalhes', org %> |
-      <%= link_to 'Editar', edit_admin_organization_path(org) %> |
-      <%= link_to 'Apagar', org, confirm: 'Tem certeza disso?', method: :delete %>
-    </p>
+        <ul>
+            <% org.users.each do |reps| %>
+              <li><%= reps.email %></li>
+            <% end %>
+        </ul>  
+      <% end %>       
 
+      <p class="links">
+        <%= link_to 'Exibir detalhes', org %> |
+        <%= link_to 'Editar', edit_admin_organization_path(org) %> |
+        <%= link_to 'Apagar', org, confirm: 'Tem certeza disso?', method: :delete %>
+      </p>
+      
+    </div>
   <% end %>
-
+  
 <% end %>
 
 <br />

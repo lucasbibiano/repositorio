@@ -1,8 +1,12 @@
 class Representante::AthletesController < ApplicationController
+
+  before_filter :only_rep
+  before_filter :same_org, :only => [:show, :edit, :update, :destroy]
+
   # GET /representante/athletes
   # GET /representante/athletes.json
   def index
-    @representante_athletes = Representante::Athlete.all
+    @representante_athletes = current_user.organization.athletes
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +17,6 @@ class Representante::AthletesController < ApplicationController
   # GET /representante/athletes/1
   # GET /representante/athletes/1.json
   def show
-    @representante_athlete = Representante::Athlete.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @representante_athlete }
@@ -34,13 +36,13 @@ class Representante::AthletesController < ApplicationController
 
   # GET /representante/athletes/1/edit
   def edit
-    @representante_athlete = Representante::Athlete.find(params[:id])
   end
 
   # POST /representante/athletes
   # POST /representante/athletes.json
   def create
     @representante_athlete = Representante::Athlete.new(params[:representante_athlete])
+    @representante_athlete.organization = current_user.organization
 
     respond_to do |format|
       if @representante_athlete.save
@@ -56,8 +58,6 @@ class Representante::AthletesController < ApplicationController
   # PUT /representante/athletes/1
   # PUT /representante/athletes/1.json
   def update
-    @representante_athlete = Representante::Athlete.find(params[:id])
-
     respond_to do |format|
       if @representante_athlete.update_attributes(params[:representante_athlete])
         format.html { redirect_to @representante_athlete, notice: 'Athlete was successfully updated.' }
@@ -79,5 +79,26 @@ class Representante::AthletesController < ApplicationController
       format.html { redirect_to representante_athletes_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def only_rep
+
+    if current_user == nil
+      redirect_to root_path, :notice => "Acesso negado" 
+    elsif current_user.is_admin
+      redirect_to root_path, :notice => "Acesso negado"  
+    end
+
+  end
+
+  def same_org
+    @representante_athlete = Representante::Athlete.find(params[:id])
+
+    if current_user.organization != @representante_athlete.organization
+      redirect_to representante_athletes_url, :notice => "Acesso negado"
+    end
+    
   end
 end

@@ -10,34 +10,33 @@
 <body>
 	<div id="tudo">
 		<header>
-			<div class="logado">
-				<div class="container">
+			<% if user_signed_in? %>
+				<div class="logado">
+					<div class="container">
 
-					<div class="row">
-						<div class="span3">
-							<% if user_signed_in? %>
-								<p class="nav_link">
-									<%= link_to('Sair', destroy_user_session_path, :method => :delete) %></p>
-							<% else %>
-								<p class="nav_link">
-									<%= link_to('Entrar', new_user_session_path)  %></p>
-							<% end %>
-						</div>
-						<div class="span9">
-							<% if user_signed_in? %>
+						<div class="row">
+						
+							<div class="span9">
 								<p class="detalhes">
 									<%= current_user.details %>
 								</p>
-							<% end %>
+							</div>
+
+							<div class="span3">
+								<p class="nav_link">
+									<%= link_to('Sair', destroy_user_session_path, :method => :delete) %>
+								</p>
+							</div>
+
 						</div>
 					</div>
-				</div>
-			</div>			
+				</div>	
+			<% end %>		
 
 			<div class="container">			
 				<div class="row">
 
-					<div class="span5">
+					<div class="span7 nav">
 						<nav>
 							<ul>
 								<li><a href="#">Menu </a></li>
@@ -45,11 +44,14 @@
 								<li><a href="#">Mn</a></li>
 								<li><a href="#">Menu 2</a></li>
 								<li><a href="#">Menu 3</a></li>
+								<% if !user_signed_in? %>
+									<li><%= link_to('Entrar', new_user_session_path)  %> </li> 
+  								<% end %>
 							</ul>
 						</nav>
 					</div>
 
-					<div class="span7">
+					<div class="span5 title">
 						<h1>Olimpíadas infantis</h1>
 					</div>
 
@@ -65,7 +67,7 @@
 				<p class="notice"><%= notice %></p> 
 
 				<%= yield %>
-
+				<br />
 				<% if user_signed_in? %>
 					<%= current_user.inspect %>
 				<% end %>

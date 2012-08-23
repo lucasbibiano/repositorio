@@ -3,4 +3,8 @@ class Representante::Athlete < ActiveRecord::Base
 	has_and_belongs_to_many :competitions, :class_name=>"Admin::Competition",
 	 :join_table => 'athletes_competitions'
 	attr_accessible :age, :name, :sex
+
+	def details
+		return name << " - " << age.to_s << " anos - " << sex
+	end
 end

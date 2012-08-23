@@ -1,4 +1,7 @@
 class Admin::OrganizationsController < ApplicationController
+
+  before_filter :only_admin
+  
   # GET /admin/organizations
   # GET /admin/organizations.json
   def index
@@ -79,5 +82,16 @@ class Admin::OrganizationsController < ApplicationController
       format.html { redirect_to admin_organizations_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def only_admin
+
+    if current_user == nil
+      redirect_to root_path, :notice => "Acesso negado" 
+    elsif !current_user.is_admin
+      redirect_to root_path, :notice => "Acesso negado"  
+    end
+
   end
 end

@@ -16,10 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :sex, "Sexo" %><br />
-    <%= f.text_field :sex %>
-  </div>
-  <div class="field">
     <%= f.label :min_age, "Idade mínima" %><br />
     <%= f.number_field :min_age %>
   </div>
@@ -30,6 +26,11 @@
   <div class="field">
     <%= f.label :max_per_org, "Inscrições máximas por organização" %><br />
     <%= f.number_field :max_per_org %>
+  </div>
+  <div class="field">
+    <%= f.label :sex, "Sexo" %><br />
+    <%= f.select :sex, options_for_select([["Masculino", "Masculino"],
+     ["Feminino", "Feminino"]]) %>
   </div>
   <div class="actions">
     <%= f.submit "Criar/Atualizar dados" %>

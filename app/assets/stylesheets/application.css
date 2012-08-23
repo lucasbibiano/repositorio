@@ -37,13 +37,13 @@ html, body{
 
 .logado{
 	background: #006699;
-	text-align: right;
+	text-align: left;
 	height: 30px;
 }
 
 p.nav_link{
 	margin: 0;
-	text-align: left;
+	text-align: right;
 }
 
 p.nav_link a{
@@ -101,6 +101,14 @@ nav li a:hover{
 	background: #E0EEEE;
 	padding: 5px;
 	margin-top: 10px;
+}
+
+.corpo a{
+	color: black;
+}
+
+.corpo a:hover{
+	background: none;
 }
 
 footer{

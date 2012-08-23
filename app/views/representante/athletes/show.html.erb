@@ -17,9 +17,9 @@
 
 <p>
   <b>Organization:</b>
-  <%= @representante_athlete.organization %>
+  <%= @representante_athlete.organization.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_representante_athlete_path(@representante_athlete) %> |
-<%= link_to 'Back', representante_athletes_path %>
+<%= link_to 'Editar', edit_representante_athlete_path(@representante_athlete) %> |
+<%= link_to 'Voltar', representante_athletes_path %>
