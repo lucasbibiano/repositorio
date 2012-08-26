@@ -12,6 +12,10 @@
  *= require_self
  */
 
+.bb{
+	background: red;
+}
+
 html, body{
 	background: #3299CC;
 	font-size: 12pt;

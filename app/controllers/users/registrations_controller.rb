@@ -5,7 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	before_filter :authenticate_user!, :only => [:new, :create]
 	before_filter :only_admin, :only => [:new, :create]
 
-
 	def new
 		@organizations = Admin::Organization.all
   		super

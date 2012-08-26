@@ -12,9 +12,7 @@ class User < ActiveRecord::Base
 	attr_accessible :organization_id, :email, :password, :password_confirmation, :remember_me, :is_admin
 	# attr_accessible :title, :body
 
-	#tamanho maximo pro nome
-    validates_length_of :name, :minimum => 1, :maximum => 18,
-     :message => "Campo deve ter entre 1 e 18 caracteres"
+	validates_presence_of :organization_id, :message => "Campo obrigatório"
 
 	def details
 		return "Logado como " << email << " | " <<

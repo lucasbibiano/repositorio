@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Criar usuário</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -11,7 +11,6 @@
 
   <div><%= f.label :password_confirmation, "Confirmar senha" %><br />
   <%= f.password_field :password_confirmation %></div>
-
 
   <div><%= f.label :organization, "Organização" %><br />
   <%= f.collection_select :organization_id, @organizations, :id, :name  %></div>

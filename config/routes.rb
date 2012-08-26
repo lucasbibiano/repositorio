@@ -9,7 +9,6 @@ SiteOlimp::Application.routes.draw do
   namespace :representante do resources :athletes end
 
   namespace :admin do resources :competitions, :organizations end
-  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

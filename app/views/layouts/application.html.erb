@@ -14,8 +14,8 @@
 	<%   @set_span = "span6" %>
 	<%	 @set_span2 = "span6" %>
 	<%	else %>
-	<%   @set_span = "span7" %>
-	<%	 @set_span2 = "span5" %>
+	<%   @set_span = "span8" %>
+	<%	 @set_span2 = "span4" %>
 	<%	end %>
 	<% end %>
 
@@ -27,9 +27,9 @@
 
 						<div class="row">
 						
-							<div class="<%= @set_span %>">
+							<div class="<%= @set_span %> bb">
 								<p class="detalhes">
-									<%= current_user.details %>
+									<%= truncate(current_user.details, :length => 115) %>
 								</p>
 							</div>
 
@@ -83,6 +83,7 @@
 			<div class="container corpo box-shadow">
 
 				<p class="notice"><%= notice %></p> 
+				<p class="alert"><%= alert %></p> 
 
 				<%= yield %>
 				<br />
