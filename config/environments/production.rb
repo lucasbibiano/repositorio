@@ -68,4 +68,21 @@ SiteOlimp::Application.configure do
 
   config.action_mailer.perform_deliveries = true 
   config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_url_options = { :host => 'olimpiadasinfantis.herokuapp.com' }
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+
+  ActionMailer::Base.smtp_settings = YAML.load_file("#{Rails.root}/config/mail.yml")[Rails.env].symbolize_keys.merge ({
+    :enable_starttls_auto => true,
+    :port                 => 587,
+    :address              => "smtp.gmail.com",
+    :tls                  => true,
+    :authentication       => :login
+  })
 end
