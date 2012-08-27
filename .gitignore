@@ -1,4 +1,6 @@
+config/environments/development.rb
 config/database.yml
+config/mail.yml
 *.swp
 /.bundle
 /db/*.sqlite3

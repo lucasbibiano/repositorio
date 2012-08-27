@@ -13,13 +13,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	def create
 		@org = Admin::Organization.find(params[:user][:organization_id])
 		
-		@user = @org.users.create(params[:user])
+		senha = gerar_senha
+
+		@user = @org.users.new(params[:user])
 		@user.is_admin = false
+		@user.password = senha
+		@user.password_confirmation = senha
 
 		if @user.save
+			UserMailer.tell_user(@user).deliver
+
 			redirect_to root_path, 
 				:notice => 'Novo representante adicionado com sucesso'
 		else
+			@organizations = Admin::Organization.all
 	  		render :action => "new", :notice => 'erro'
 		end
 	end
@@ -33,6 +40,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 			redirect_to root_path, :notice => "Acesso negado"  
 		end
 
+	end
+
+	def gerar_senha
+		('a'..'z').to_a.shuffle[0,8].join
 	end
 
 end
