@@ -83,6 +83,6 @@ SiteOlimp::Application.configure do
     :port                 => 587,
     :address              => "smtp.gmail.com",
     :tls                  => true,
-    :authentication       => :plain
+    :authentication       => :login
   })
 end
