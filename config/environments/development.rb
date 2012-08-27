@@ -48,11 +48,13 @@ SiteOlimp::Application.configure do
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
 
-  ActionMailer::Base.smtp_settings = YAML.load_file("#{Rails.root}/config/mail.yml")[Rails.env].symbolize_keys.merge ({
-    :enable_starttls_auto => true,
+  config.action_mailer.smtp_settings = {
+    :address              => 'smtp.gmail.com',
     :port                 => 587,
-    :address              => "smtp.gmail.com",
-    :tls                  => true,
-    :authentication       => :login
-  })
+    :domain               => 'gmail.com',
+    :user_name            => ENV['EMAIL'],
+    :password             => ENV['PASSWORD'],
+    :authentication       => 'login',
+    :enable_starttls_auto => true
+  }
 end
