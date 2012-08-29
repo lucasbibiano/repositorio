@@ -1,4 +1,4 @@
-<h2>Criar usuário</h2>
+<h2>Criar representante</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -9,7 +9,9 @@
   <div><%= f.label :organization, "Organização" %><br />
   <%= f.collection_select :organization_id, @organizations, :id, :name  %></div>
 
-  <div><%= f.submit "Criar usuário" %></div>
+  <br />
+
+  <div><%= f.submit "Criar representante" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

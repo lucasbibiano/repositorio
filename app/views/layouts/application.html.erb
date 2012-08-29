@@ -39,7 +39,7 @@
 									<% if current_user.is_admin %>
 										<%= link_to 'Gerenciar Competições', admin_competitions_path %> |
 										<%= link_to 'Gerenciar Representantes', 
-											'/users/sign_up' %> |
+											admin_representantes_path %> |
 										<%= link_to 'Gerenciar Organizações', admin_organizations_path %> |
 									<% else %>
 										<%= link_to 'Gerenciar Atletas', representante_athletes_path %> |
@@ -64,6 +64,8 @@
 								<li><a href="/">Home</a></li>
 								<% if !user_signed_in? %>
 									<li><%= link_to('Entrar', new_user_session_path)  %> </li> 
+  								<% else %>
+  									<li><%= link_to 'Mudar senha',edit_user_registration_path %></li>
   								<% end %>
 							</ul>
 						</nav>
@@ -86,10 +88,6 @@
 				<p class="alert"><%= alert %></p> 
 
 				<%= yield %>
-				<br />
-				<% if user_signed_in? %>
-					<%= current_user.inspect %>
-				<% end %>
 
 			</div>
 		</div>

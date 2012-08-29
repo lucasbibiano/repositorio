@@ -2,3 +2,7 @@ production:
   domain   : gmail.com
   user_name: ENV['EMAIL']
   password : ENV['PASSWORD']
+development:
+  domain   : gmail.com
+  user_name: ENV['EMAIL']
+  password : ENV['PASSWORD']

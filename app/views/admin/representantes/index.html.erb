@@ -1,0 +1,17 @@
+<h2>Representantes</h2>
+
+<% if @admin_representantes.empty? %>
+	<p>Nenhum representante cadastrado ainda.</p>
+<% else %>
+	<ul>
+		<% @admin_representantes.each do |rep| %>
+			<li>
+				<strong><%= rep.email %></strong>, representante de <strong><%= rep.organization.name %></strong> | <%= link_to "Remover representante", destroy_user_path(rep), :method => :delete, :confirm => "Tem certeza disso?" %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
+<br />
+
+<p><%= link_to 'Cadastrar novo representante', "/users/sign_up" %></p>

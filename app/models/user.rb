@@ -12,11 +12,13 @@ class User < ActiveRecord::Base
 	attr_accessible :organization_id, :email, :password, :password_confirmation, :remember_me, :is_admin
 	# attr_accessible :title, :body
 
-	validates_presence_of :organization_id, :message => "Campo obrigatório"
+	validates_presence_of :organization_id, :message => "Campo obrigatório",
+		:unless => "is_admin"
 
 	def details
 		return "Logado como " << email << " | " <<
 		 (is_admin ? "Administrador" : "Representante") << " | " <<
 		 (organization ? organization.name : "")
 	end
+
 end

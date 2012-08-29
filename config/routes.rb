@@ -1,14 +1,21 @@
 # -*- encoding : utf-8 -*-
 SiteOlimp::Application.routes.draw do
-  devise_for :users, :controllers  => {
-             :registrations => 'users/registrations'
-           }
-
   root :to => "home#index"
-  
+
+  match '/users/:id', :to => 'users/registrations#destroy',
+    :as => :destroy_user, :via => :delete
+
+  devise_for :users, :controllers  => {
+    :registrations => 'users/registrations'
+  }
+
   namespace :representante do resources :athletes end
 
-  namespace :admin do resources :competitions, :organizations end
+  namespace :admin do
+    resources :competitions, :organizations
+    
+    match '/representantes', :to => "representantes#index", :as => :representantes
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
