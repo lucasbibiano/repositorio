@@ -2,12 +2,12 @@
 SiteOlimp::Application.routes.draw do
   root :to => "home#index"
 
-  match '/users/:id', :to => 'users/registrations#destroy',
-    :as => :destroy_user, :via => :delete
-
   devise_for :users, :controllers  => {
     :registrations => 'users/registrations'
   }
+
+  match '/users/:id', :to => 'users/registrations#destroy',
+    :as => :destroy_user, :via => :delete
 
   namespace :representante do resources :athletes end
 

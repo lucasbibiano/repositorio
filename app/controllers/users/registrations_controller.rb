@@ -32,6 +32,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	end
 
 	def destroy
+		if (params[:id] == "sign_out")
+			super
+			return
+		end
+
 		User.find(params[:id]).destroy
 		flash[:notice] = "Representante deletado com sucesso"
 		redirect_to admin_representantes_path and return
