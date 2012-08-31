@@ -9,7 +9,7 @@ class Representante::Athlete < ActiveRecord::Base
 	validates_presence_of :name
 
 	#validacao numerica
-	validates :max_age, :numericality => { :greater_than => 0,
+	validates :age, :numericality => { :greater_than => 0,
 	:message => "Apenas números maiores que 0 são permitidos" }
 
 	#apenas masculino e feminino aceitos

@@ -4,8 +4,15 @@ SiteOlimp::Application.routes.draw do
 
   devise_for :users, :controllers  => {
     :registrations => 'users/registrations'
-  }
-
+  }, :skip => [:registrations]                                          
+    as :user do
+      get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration' 
+      get 'users/:id', :to => 'admin/representantes#index'
+      put 'users' => 'devise/registrations#update', :as => 'user_registration' 
+      get '/users/sign_up', :to => 'users/registrations#new'
+      post '/users', :to => 'users/registrations#create'
+    end
+    
   match '/users/:id', :to => 'users/registrations#destroy',
     :as => :destroy_user, :via => :delete
 
