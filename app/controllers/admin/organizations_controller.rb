@@ -37,7 +37,7 @@ class Admin::OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @admin_organization.save
-        format.html { redirect_to @admin_organization, notice: 'Organization was successfully created.' }
+        format.html { redirect_to admin_organizations_url, notice: 'Organização criada com sucesso' }
         format.json { render json: @admin_organization, status: :created, location: @admin_organization }
       else
         format.html { render action: "new" }
@@ -53,7 +53,7 @@ class Admin::OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @admin_organization.update_attributes(params[:admin_organization])
-        format.html { redirect_to @admin_organization, notice: 'Organization was successfully updated.' }
+        format.html { redirect_to admin_organizations_url, notice: 'Organização atualizada com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -69,7 +69,7 @@ class Admin::OrganizationsController < ApplicationController
     @admin_organization.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_organizations_url }
+      format.html { redirect_to admin_organizations_url, notice: 'Organização apagada com sucesso'} 
       format.json { head :no_content }
     end
   end

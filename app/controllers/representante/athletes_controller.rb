@@ -47,7 +47,7 @@ class Representante::AthletesController < ApplicationController
 
     respond_to do |format|
       if @representante_athlete.save
-        format.html { redirect_to @representante_athlete, notice: 'Athlete was successfully created.' }
+        format.html { redirect_to representante_athletes_url, notice: 'Atleta criado com sucesso' }
         format.json { render json: @representante_athlete, status: :created, location: @representante_athlete }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class Representante::AthletesController < ApplicationController
   def update
     respond_to do |format|
       if @representante_athlete.update_attributes(params[:representante_athlete])
-        format.html { redirect_to @representante_athlete, notice: 'Athlete was successfully updated.' }
+        format.html { redirect_to representante_athletes_url, notice: 'Atleta atualizado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +77,7 @@ class Representante::AthletesController < ApplicationController
     @representante_athlete.destroy
 
     respond_to do |format|
-      format.html { redirect_to representante_athletes_url }
+      format.html { redirect_to representante_athletes_url, notice: 'Atleta apagado com sucesso' }
       format.json { head :no_content }
     end
   end

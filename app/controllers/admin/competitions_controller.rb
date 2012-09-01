@@ -48,7 +48,7 @@ class Admin::CompetitionsController < ApplicationController
 
     respond_to do |format|
       if @admin_competition.save
-        format.html { redirect_to @admin_competition, notice: 'Competition was successfully created.' }
+        format.html { redirect_to admin_competitions_url, notice: 'Competição cadastrada com sucesso' }
         format.json { render json: @admin_competition, status: :created, location: @admin_competition }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class Admin::CompetitionsController < ApplicationController
 
     respond_to do |format|
       if @admin_competition.update_attributes(params[:admin_competition])
-        format.html { redirect_to @admin_competition, notice: 'Competition was successfully updated.' }
+        format.html { redirect_to admin_competitions_url, notice: 'Competição atualizada com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,7 +80,7 @@ class Admin::CompetitionsController < ApplicationController
     @admin_competition.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_competitions_url }
+      format.html { redirect_to admin_competitions_url, notice: 'Competição apagada com sucesso' }
       format.json { head :no_content }
     end
   end

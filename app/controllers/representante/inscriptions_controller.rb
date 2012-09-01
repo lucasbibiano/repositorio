@@ -18,9 +18,7 @@ class Representante::InscriptionsController < ApplicationController
 
 		if (not params[:competition].nil?) &&
 			(params[:competition][:athletes_ids].count > @competition.max_per_org)
-			flash[:notice] = "Tsc Tsc"
-			@competition.errors.add(:max_per_org,
-			 "Apenas #{@competition.max_per_org} atletas são permitidos nessa competição")
+			flash[:notice] = "Apenas #{@competition.max_per_org} atletas são permitidos nessa competição"
 	    	redirect_to :back
 	    	return
 	    end
