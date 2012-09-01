@@ -14,17 +14,6 @@ class Admin::OrganizationsController < ApplicationController
     end
   end
 
-  # GET /admin/organizations/1
-  # GET /admin/organizations/1.json
-  def show
-    @admin_organization = Admin::Organization.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @admin_organization }
-    end
-  end
-
   # GET /admin/organizations/new
   # GET /admin/organizations/new.json
   def new
