@@ -15,7 +15,7 @@
 html, body{
 	background: #3299CC;
 	font-size: 12pt;
-	font-family: Helvetica;
+	font-family: Helvetica, Arial;
 }
 
 #tudo{
@@ -41,13 +41,10 @@ html, body{
 	height: 30px;
 }
 
-.logado p{
-	font-size: 0.7em;
-}
-
 p.nav_link{
 	margin: 0;
 	text-align: right;
+	color: #ccc;
 }
 
 p.nav_link a{
@@ -60,6 +57,7 @@ p.nav_link a{
 	color: white;
 	font-weight: bold;
 	margin: 0;
+	font-size: 0.8em;
 }
 
 p.nav_link a:hover{
