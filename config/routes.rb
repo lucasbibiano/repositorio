@@ -6,10 +6,10 @@ SiteOlimp::Application.routes.draw do
     :registrations => 'users/registrations'
   }, :skip => [:registrations]                                          
     as :user do
+      get '/users/sign_up', :to => 'users/registrations#new'
       get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration' 
       get 'users/:id', :to => 'admin/representantes#index'
       put 'users' => 'devise/registrations#update', :as => 'user_registration' 
-      get '/users/sign_up', :to => 'users/registrations#new'
       post '/users', :to => 'users/registrations#create'
     end
     
