@@ -16,7 +16,19 @@ SiteOlimp::Application.routes.draw do
   match '/users/:id', :to => 'users/registrations#destroy',
     :as => :destroy_user, :via => :delete
 
-  namespace :representante do resources :athletes end
+  match '/representante/inscriptions/inscrever/:id', :to => 'representante/inscriptions#inscrever',
+    :as => :inscrever
+
+  post '/representante/inscriptions/efetuar_inscricao/:id',
+    :to => 'representante/inscriptions#efetuar_inscricao',
+    :as => :efetuar_inscricao
+
+  namespace :representante do 
+    resources :athletes 
+
+    match 'inscriptions', :to => 'inscriptions#index'
+
+  end
 
   namespace :admin do
     resources :competitions, :organizations

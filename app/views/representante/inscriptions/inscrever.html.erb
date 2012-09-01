@@ -1,0 +1,26 @@
+<h2>Inscrever atletas</h2>
+
+<%= form_tag(efetuar_inscricao_path(@competition), :method => "post") do %>
+
+	<% if @competition.errors.any? %>
+		<% @competition.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	    <% end %>
+	<% end %>
+
+	<h3><%= @competition.full_name %></h3>
+			
+	<ul>
+
+		<% @athletes.each do |atl| %>
+			<% if atl.can_join(@competition) %>
+				<li><%= check_box_tag "competition[athletes_ids][]", atl.id,
+					@competition.athletes.include?(atl) %> <%= atl.name %></li>
+			<% end %>
+		<% end %>
+
+	</ul>
+	
+	<%= submit_tag 'Enviar' %>
+<% end %>
+

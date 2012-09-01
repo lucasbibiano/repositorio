@@ -19,4 +19,8 @@ class Representante::Athlete < ActiveRecord::Base
 	def details
 		return name << " - " << age.to_s << " anos - " << sex
 	end
+
+	def can_join(comp)
+		return (sex == comp.sex) && (age.between?(comp.min_age, comp.max_age))
+	end
 end

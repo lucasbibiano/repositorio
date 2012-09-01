@@ -5,9 +5,7 @@
 <% else %>
   <ul>
     <% @representante_athletes.each do |atl| %>
-      <li><%= atl.details %> | <%= #link_to 'Deletar atleta',
-       #destroy_representante_athlete, :method => :delete 
-       %>
+      <li><%= atl.details %></li>
     <% end %>
   </ul>
 <% end %>

@@ -13,7 +13,8 @@
         <ul>
 
           <% admin_competition.athletes.each do |athlete| %>
-            <li>athlete.name | edit_admin_organization_path(admin_organization)</li>
+            <li><%= athlete.details %> -
+              <strong> <%= athlete.organization.name %> </strong></li>
           <% end %>
 
         </ul>

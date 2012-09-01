@@ -1,0 +1,14 @@
+<h2>Inscrever atletas</h2>
+
+<% if @competitions.empty? or @athletes.empty? %>
+	<p>Ou não existem atletas, ou não existem competições cadastradas ainda.</p>
+<% else %>
+	
+	<ul>
+		<% @competitions.each do |comp| %>
+			
+			<li><%= comp.name %> | <%= link_to 'Inscrever atletas', inscrever_path(comp.id) %></li>
+		<% end %>
+	</ul>
+
+<% end %>
