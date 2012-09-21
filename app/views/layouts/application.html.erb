@@ -43,7 +43,8 @@
 										<li><%= link_to 'Gerenciar Organizações', admin_organizations_path %></li> |
 									<% else %>
 										<li><%= link_to 'Gerenciar Atletas', representante_athletes_path %></li> |
-										<li><%= link_to 'Inscrever atletas', 'representante/inscriptions' %></li> |
+										<li><%= link_to 'Inscrever atletas', '
+										/representante/inscriptions' %></li> |
 									<% end %>
 
 									<li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
