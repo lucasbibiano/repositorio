@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SiteOlimp</title>
+  <title>Olímpiadas infantis 2012</title>
   <link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -11,8 +11,8 @@
 	<% #nao sei onde colocar isso, vai aqui mesmo %>
 	<% if user_signed_in? %>
 	<% 	if current_user.is_admin %>
-	<%   @set_span = "span6" %>
-	<%	 @set_span2 = "span6" %>
+	<%   @set_span = "span5" %>
+	<%	 @set_span2 = "span7" %>
 	<%	else %>
 	<%   @set_span = "span8" %>
 	<%	 @set_span2 = "span4" %>
@@ -29,25 +29,25 @@
 						
 							<div class="<%= @set_span %> bb">
 								<p class="detalhes">
-									<%= truncate(current_user.details, :length => 115) %>
+									<%= truncate(current_user.details, :length => 100) %>
 								</p>
 							</div>
 
 							<div class="<%= @set_span2 %>">
-								<p class="nav_link">
+								<ul id="menu">
 
 									<% if current_user.is_admin %>
-										<%= link_to 'Gerenciar Competições', admin_competitions_path %> |
-										<%= link_to 'Gerenciar Representantes', 
-											admin_representantes_path %> |
-										<%= link_to 'Gerenciar Organizações', admin_organizations_path %> |
+										<li><%= link_to 'Gerenciar Competições', admin_competitions_path %></li> |
+										<li><%= link_to 'Gerenciar Representantes', 
+											admin_representantes_path %></li> |
+										<li><%= link_to 'Gerenciar Organizações', admin_organizations_path %></li> |
 									<% else %>
-										<%= link_to 'Gerenciar Atletas', representante_athletes_path %> |
-										<%= link_to 'Inscrever atletas', 'representante/inscriptions' %> |
+										<li><%= link_to 'Gerenciar Atletas', representante_athletes_path %></li> |
+										<li><%= link_to 'Inscrever atletas', 'representante/inscriptions' %></li> |
 									<% end %>
 
-									<%= link_to('Sair', destroy_user_session_path, :method => :delete) %>
-								</p>
+									<li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
+								</ul>
 							</div>
 
 						</div>

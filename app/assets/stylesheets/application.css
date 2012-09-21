@@ -32,7 +32,6 @@ html, body{
 		color-stop(1, rgb(51,161,201)),
 		color-stop(0, rgb(50,153,204))
 	);
-
 }
 
 .logado{
@@ -41,23 +40,24 @@ html, body{
 	height: 30px;
 }
 
-p.nav_link{
+ul#menu{
+	list-style: none;
 	margin: 0;
-	text-align: right;
-	color: #ccc;
+	text-align: left;
+	float: right;
 }
 
-p.nav_link a{
-	display: inline-block;
-	padding: 0 15px 0 15px;
+ul#menu li{
+	display: inline;
+	padding: 3px;
 }
 
-.detalhes, p.nav_link a{
+.detalhes, ul#menu li a{
 	line-height: 30px;
 	color: white;
 	font-weight: bold;
 	margin: 0;
-	font-size: 0.7em;
+	font-size: 0.8em;
 }
 
 p.nav_link a:hover{
